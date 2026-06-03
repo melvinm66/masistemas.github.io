@@ -471,22 +471,23 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="contact-form-card animate__animated animate__fadeInUp">
-                        <form action="#">
+                        <form action="https://formsubmit.co/melvinm66@gmail.com" method="POST">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control custom-input" placeholder="Nombre" required>
+                                    <input type="text" name="nombre" class="form-control custom-input" placeholder="Nombre" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control custom-input" placeholder="Email" required>
+                                    <input type="email" name="email" class="form-control custom-input" placeholder="Email" required>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control custom-input"
-                                        placeholder="Deseo una cotización o reunión">
+                                    <input type="text" name="asunto" class="form-control custom-input"
+                                        placeholder="Deseo una cotización o reunión" required>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control custom-input" rows="5"
-                                        placeholder="Mensaje"></textarea>
+                                    <textarea name="mensaje" class="form-control custom-input" rows="5"
+                                        placeholder="Mensaje" required></textarea>
                                 </div>
+                                <input type="hidden" name="_captcha" value="false">
                                 <div class="col-12 text-center">
                                     <button type="submit" class="btn-send">Enviar mensaje</button>
                                 </div>
