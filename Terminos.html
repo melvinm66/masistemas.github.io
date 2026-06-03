@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Servicios - MAsistemas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para la página de Términos */
+        .terminos-hero {
+            padding: 140px 0 80px;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .terminos-content {
+            padding: 80px 0;
+        }
+
+        .termino-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .termino-card:hover {
+            border-color: rgba(0, 255, 194, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .termino-card h3 {
+            color: #00ffc2;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .termino-card h3 i {
+            font-size: 1.5rem;
+        }
+
+        .termino-card p, .termino-card li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .termino-card ul {
+            padding-left: 20px;
+        }
+
+        .termino-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #00ffc2 0%, #00d2ff 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--bg-dark);
+            border: 3px solid #00ffc2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ffc2;
+            font-weight: 800;
+            font-size: 1.2rem;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-number {
+            background: #00ffc2;
+            color: #010408;
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .timeline-content-card {
+            width: calc(50% - 50px);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item:hover .timeline-content-card {
+            border-color: rgba(0, 255, 194, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 255, 194, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content-card {
+            margin-right: auto;
+            margin-left: 0;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content-card {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .timeline-content-card h4 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .timeline-content-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Customer service image */
+        .customer-service-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .customer-service-img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 255, 194, 0.15);
+        }
+
+        .contact-float {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        .contact-float h5 {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .contact-float a {
+            color: #00ffc2;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-float a:hover {
+            color: #00d2ff;
+        }
+
+        @media (max-width: 991px) {
+            .timeline::before {
+                left: 25px;
+            }
+            
+            .timeline-number {
+                left: 25px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .timeline-content-card {
+                width: calc(100% - 70px);
+                margin-left: 70px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-item:hover .timeline-number {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand animate__animated animate__fadeInDown" href="index.html">MASistemas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list text-white fs-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto animate__animated animate__fadeInDown">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#embudo">¿Por qué una web?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#precios">Precios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#preguntas">Preguntas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="terminos-hero">
+        <div class="bg-glow"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                    <div class="badge-tool mb-3">
+                        <i class="bi bi-shield-check me-2"></i>Información Legal
+                    </div>
+                    <h1 class="hero-title">
+                        Términos y <span class="text-gradient-custom">Servicios</span>
+                    </h1>
+                    <p class="text-white fs-5 mb-4">Al contratar los servicios de MAsistemas, el Cliente acepta los siguientes Términos y Condiciones. Lea atentamente antes de proceeder.</p>
+                    <p class="text-white">Última actualización: 07/11/2025</p>
+                </div>
+                <div class="col-lg-6 text-center animate__animated animate__fadeInRight mt-5 mt-lg-0">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Atención al Cliente" 
+                         class="customer-service-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido de Términos -->
+    <section class="terminos-content">
+        <div class="container">
+            
+            <!-- Proceso de Trabajo (Timeline) -->
+            <div class="text-center mb-5">
+                <h2 class="section-title">Proceso de <span class="text-gradient-custom">Trabajo</span></h2>
+            </div>
+            
+            <div class="timeline mb-5">
+                <div class="timeline-item animate__animated animate__fadeInUp">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content-card">
+                        <h4>Reunión Inicial</h4>
+                        <p>Definimos objetivos, y contenidos necesario para tu proyecto.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content-card">
+                        <h4>Propuesta de Diseño</h4>
+                        <p>Presentamos la propuesta de diseño inicial adaptada a tu marca u objetivo.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content-card">
+                        <h4>Revisiones</h4>
+                        <p>Hasta 2 rondas de revisiones sin costo adicional para tu satisfacción.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content-card">
+                        <h4>Desarrollo Técnico</h4>
+                        <p>Construimos tu sitio web con las mejores prácticas y optimización.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content-card">
+                        <h4>Entrega Final</h4>
+                        <p>Publicamos tu sitio web y te entregamos todos los accesos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Términos en Cards -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInLeft">
+                        <h3><i class="bi bi-bullseye"></i> Alcance del Servicio</h3>
+                        <p>MAsistemas se compromete a diseñar y desarrollar un sitio web según las especificaciones acordadas en el presupuesto aprobado por el Cliente. Todo servicio adicional o modificación no contemplada inicialmente podrá generar costos adicionales.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInRight">
+                        <h3><i class="bi bi-clock-history"></i> Plazos de Entrega</h3>
+                        <p>Los plazos de entrega serán estimados al inicio del proyecto. MAsistemas no se responsabiliza por demoras causadas por el retraso en la entrega de contenido o aprobaciones por parte del cliente.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInLeft" style="animation-delay: 0.2s;">
+                        <h3><i class="bi bi-person-check"></i> Responsabilidades del Cliente</h3>
+                        <ul>
+                            <li>Proporcionar todo el contenido necesario (textos, imágenes, logos).</li>
+                            <li>Aprobar avances en tiempo y forma.</li>
+                            <li>Realizar los pagos acordados.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInRight" style="animation-delay: 0.2s;">
+                        <h3><i class="bi bi-credit-card"></i> Pagos</h3>
+                        <ul>
+                            <li>Se requiere un 50% de adelantado para iniciar el proyecto.</li>
+                            <li>El saldo restante (50%) se abona al finalizar el desarrollo, previo a la entrega o publicación del sitio.</li>
+                            <li>En caso de cancelación del proyecto por parte del Cliente, no se reintegrarán los pagos realizados hasta el momento.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInLeft" style="animation-delay: 0.4s;">
+                        <h3><i class="bi bi-circle"></i> Derechos de Autor y Licencias</h3>
+                        <p>Todo el código, diseño y contenido entregado será propiedad del Cliente al completarse el pago total. MAsistemas se reserva el derecho de incluir una mención discreta en el pie del sitio ("Diseñado por MAsistemas") salvo que se acuerde lo contrario.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInRight" style="animation-delay: 0.4s;">
+                        <h3><i class="bi bi-headset"></i> Soporte Post-Entrega</h3>
+                        <p>Se ofrece soporte técnico por errores o ajustes menores durante 15 días corridos posteriores a la entrega. Cambios adicionales se presupuestarán aparte.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInLeft" style="animation-delay: 0.6s;">
+                        <h3><i class="bi bi-lock"></i> Confidencialidad</h3>
+                        <p>Ambas partes se comprometen a mantener la confidencialidad sobre la información compartida durante el desarrollo del proyecto.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="termino-card animate__animated animate__fadeInRight" style="animation-delay: 0.6s;">
+                        <h3><i class="bi bi-pencil-square"></i> Modificaciones de los Términos</h3>
+                        <p>MAsistemas se reserva el derecho de modificar estos términos en cualquier momento. Las condiciones vigentes serán siempre las que se comuniquen antes del inicio de un nuevo proyecto.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contacto Flotante -->
+            <div class="contact-float text-center animate__animated animate__fadeInUp">
+                <h5><i class="bi bi-question-circle me-2"></i>¿Tienes más preguntas?</h5>
+                <p class="mb-3">Estamos disponibles para ayudarte</p>
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+                    <a href="tel:+573219773309"><i class="bi bi-phone me-2"></i>+57 321 977 3309</a>
+                    <a href="tel:+584220062997"><i class="bi bi-phone me-2"></i>+58 0422 0062997</a>
+                    <a href="mailto:melvinm66@gmail.com"><i class="bi bi-envelope me-2"></i>melvinm66@gmail.com</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="footer-logo">MAsistemas</h2>
+                    <div class="footer-contact-info mt-2">
+                        <p><strong>Teléfono:</strong> +57 321 977 3309</p>
+                        <p><strong>Email:</strong> melvinm66@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title">Importante</h6>
+                    <ul class="footer-links">
+                        <li><a href="Terminos.html">Términos de mis servicios</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="footer-title">Mis servicios</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html#servicios">Diseño Web</a></li>
+                        <li><a href="index.html#servicios">Desarrollo Web</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="footer-title">Sígueme</h6>
+                    <div class="social-icons-container">
+                        <a href="#" class="social-icon-box"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon-box"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-line">
+
+            <div class="footer-bottom">
+                <p>Diseñado por <span class="brand-accent">MAsistemas</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <a href="https://wa.me/573219773309" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-whatsapp"></i>
+        <span class="tooltip-whatsapp">¡Hablemos de tu proyecto!</span>
+    </a>
+
+</body>
+
+</html>

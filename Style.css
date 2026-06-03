@@ -1,0 +1,735 @@
+:root {
+    --bg-dark: #010408;
+    --accent-green: #00ffc2; /* Color de los botones */
+    --accent-dark-green: #18d882;
+    --text-main: #ffffff;
+    --text-muted: #a0a9b8;
+    --nav-bg: rgba(1, 4, 8, 0.9);
+    --border-color: #1c2128;
+    
+    /* GRADIENTE: Del verde de los botones al celeste */
+    --gradient-btn-to-celeste: linear-gradient(90deg, #00ffc2 0%, #00d2ff 100%);
+    --gradient-primary: linear-gradient(135deg, #00ffc2, #18d882);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.2rem 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: var(--text-main) !important;
+    font-size: 1.6rem;
+}
+
+.nav-link {
+    color: var(--text-muted) !important;
+    transition: 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--accent-green) !important;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    padding: 120px 0 80px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.bg-glow {
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 255, 194, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+    filter: blur(80px);
+}
+
+.badge-tool {
+    background: #1c2128;
+    color: #58a6ff;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid #30363d;
+    display: inline-flex;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+/* GRADIENTE ESPECÍFICO PARA PALABRAS CLAVE */
+.text-gradient-custom {
+    background: var(--gradient-btn-to-celeste);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    max-width: 580px;
+    margin-bottom: 40px;
+}
+
+/* --- BOTONES --- */
+.btn-custom-primary {
+    background: var(--gradient-primary);
+    color: #010408;
+    padding: 14px 34px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.4s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-custom-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 255, 194, 0.3);
+}
+
+.btn-custom-outline {
+    border: 1px solid rgba(0, 255, 194, 0.4);
+    color: var(--text-main);
+    padding: 14px 34px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-custom-outline:hover {
+    background: rgba(0, 255, 194, 0.08);
+    color: var(--accent-green);
+}
+
+/* --- ILUSTRACIÓN --- */
+.illustration-box {
+    animation: float 5s ease-in-out infinite;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 255, 0.1));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-25px); }
+}
+
+.img-hero {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* --- FEATURES BAR --- */
+.features-bar {
+    background: rgba(13, 17, 23, 0.8);
+    border-top: 1px solid var(--border-color);
+    padding: 45px 0;
+}
+
+.feature-item {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-item i {
+    color: var(--accent-green);
+    margin-right: 12px;
+}
+
+@media (max-width: 991px) {
+    .hero { text-align: center; }
+    .hero p { margin-left: auto; margin-right: auto; }
+}
+
+/* --- SECCIÓN SERVICIOS DARK --- */
+/* --- SECCIÓN EMBUDO / COPY --- */
+.funnel-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+}
+.cta-box {
+    transition: all 0.4s ease;
+}
+.cta-box:hover {
+    border-color: rgba(0, 255, 194, 0.3) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.services-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark); /* Color oscuro del fondo general */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* Estilo Base de la Tarjeta */
+.service-card {
+    background: transparent; /* Fondo transparente como solicitaste */
+    border-radius: 20px;
+    padding: 45px 30px;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde por defecto muy sutil */
+    text-align: center;
+}
+
+/* Hover: Elevación y Sombra */
+.service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor del Ícono */
+.icon-container {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2rem;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* --- COLORES ESPECÍFICOS POR TARJETA (Basado en la imagen) --- */
+
+/* Tarjeta 1: Cyan */
+.card-cyan { border-bottom: 3px solid #00d2ff; }
+.card-cyan:hover { border: 1px solid #00d2ff; }
+.icon-bg-cyan { background: rgba(0, 210, 255, 0.1); color: #00d2ff; }
+
+/* Tarjeta 2: Verde */
+.card-green { border-bottom: 3px solid #00ffc2; }
+.card-green:hover { border: 1px solid #00ffc2; }
+.icon-bg-green { background: rgba(0, 255, 194, 0.1); color: #00ffc2; }
+
+/* Tarjeta 3: Púrpura */
+.card-purple { border-bottom: 3px solid #8a2be2; }
+.card-purple:hover { border: 1px solid #8a2be2; }
+.icon-bg-purple { background: rgba(138, 43, 226, 0.1); color: #8a2be2; }
+
+/* --- SECCIÓN PRECIOS DARK --- */
+.pricing-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+}
+
+.pricing-card {
+    background: transparent; /* Fondo transparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* Efecto de borde iluminado al hacer hover */
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Badge de Oferta */
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: #3d5afe;
+    color: white;
+    padding: 5px 40px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.plan-name {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.price-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.price-value small {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.icon-pricing {
+    font-size: 3rem;
+    margin: 15px 0;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.pricing-features li {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 8px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.pricing-features li i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+/* --- VARIACIONES DE COLOR Y BORDES --- */
+
+/* CYAN */
+.card-cyan:hover { border-color: #00d2ff; }
+.cyan-text { color: #00d2ff; }
+.btn-outline-cyan {
+    border: 1px solid #00d2ff;
+    color: #00d2ff;
+}
+.btn-outline-cyan:hover {
+    background: #00d2ff;
+    color: #000;
+}
+
+/* NARANJA */
+.card-orange:hover { border-color: #ff9800; }
+.orange-text { color: #ff9800; }
+.btn-outline-orange {
+    border: 1px solid #ff9800;
+    color: #ff9800;
+}
+.btn-outline-orange:hover {
+    background: #ff9800;
+    color: #000;
+}
+
+/* AZUL */
+.card-blue:hover { border-color: #2196f3; }
+.blue-text { color: #2196f3; }
+.btn-outline-blue {
+    border: 1px solid #2196f3;
+    color: #2196f3;
+}
+.btn-outline-blue:hover {
+    background: #2196f3;
+    color: #000;
+}
+
+/* Estilo común de botones de precio */
+.btn-pricing {
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+/* --- SECCIÓN FAQ DARK --- */
+.faq-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+}
+
+.custom-faq .accordion-item {
+    background-color: transparent !important; /* Fondo transparente */
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.custom-faq .accordion-button {
+    background-color: transparent !important;
+    color: #00d2ff; /* Color Cyan como tus títulos de precio */
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    padding: 20px 10px;
+    border: none;
+    box-shadow: none;
+}
+
+/* El icono de la flecha */
+.custom-faq .accordion-button::after {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg); /* Ajusta flecha a cyan */
+}
+
+.custom-faq .accordion-button:not(.collapsed) {
+    color: #00ffc2; /* Cambia a verde neón cuando está abierto */
+    border-bottom: 1px solid var(--accent-green);
+}
+
+.custom-faq .accordion-body {
+    background-color: transparent;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 20px 10px;
+}
+
+/* Efecto de borde fino degradado al hacer hover en la pregunta */
+.custom-faq .accordion-item:hover {
+    border-bottom: 1px solid transparent;
+    position: relative;
+}
+
+.custom-faq .accordion-item:hover::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-btn-to-celeste); /* El degradado de tus iconos */
+}
+
+/* BOTÓN WHATSAPP */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(13, 17, 23, 0.8); /* Fondo Dark Transparente */
+    color: #25d366; /* Color oficial de WhatsApp */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    z-index: 1000;
+    text-decoration: none;
+    border: 1px solid rgba(0, 255, 194, 0.3); /* Borde fino verde neón */
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto Hover: Cambia al degradado de tus iconos */
+.whatsapp-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    border-color: #00ffc2;
+    background: var(--gradient-btn-to-celeste);
+    color: #010408; /* Icono oscuro al fondo degradado */
+}
+
+/* Animación de Pulso */
+.whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #25d366;
+    animation: pulse-whatsapp 2s infinite;
+    opacity: 0;
+}
+
+@keyframes pulse-whatsapp {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Tooltip (Texto flotante al pasar el mouse) */
+.tooltip-whatsapp {
+    position: absolute;
+    right: 80px;
+    background: #0d1117;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    border: 1px solid var(--border-color);
+}
+
+.whatsapp-btn:hover .tooltip-whatsapp {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+    }
+    .tooltip-whatsapp { display: none; } /* Ocultar texto en móvil para no tapar pantalla */
+}
+
+/* --- SECCIÓN CONTACTO DARK --- */
+.contact-section {
+    padding: 100px 0;
+    background-color: var(--bg-dark);
+}
+
+.contact-info-card, .contact-form-card {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.4s ease;
+}
+
+/* Efecto de borde degradado al pasar el mouse */
+.contact-info-card:hover, .contact-form-card:hover {
+    border-color: transparent;
+    border: 1px solid;
+    border-image-source: var(--gradient-btn-to-celeste);
+    border-image-slice: 1;
+    box-shadow: 0 10px 30px rgba(0, 255, 194, 0.1);
+}
+
+.info-item-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.info-item-horizontal h5 {
+    color: #ffffff;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.info-item-horizontal p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* Estilos de Inputs Transparentes */
+.custom-input {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    padding: 12px 20px;
+    border-radius: 10px;
+}
+
+.custom-input:focus {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: #00ffc2 !important;
+    box-shadow: 0 0 10px rgba(0, 255, 194, 0.2);
+    outline: none;
+}
+
+/* Botón de Envío */
+.btn-send {
+    background: #3d5afe;
+    color: white;
+    border: none;
+    padding: 12px 50px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-send:hover {
+    background: var(--gradient-btn-to-celeste);
+    color: #010408;
+    transform: translateY(-3px);
+}
+
+/* --- FOOTER LIGHT DARK & COMPACTO --- */
+.main-footer {
+    background-color: #161b22; /* Tono Light Dark */
+    padding: 50px 0 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-logo {
+    color: #ffffff;
+    font-size: 1.4rem; /* Tamaño más pequeño */
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.footer-contact-info p {
+    font-size: 0.82rem; /* Fuente pequeña */
+    color: #a0a9b8;
+    margin-bottom: 4px;
+}
+
+.footer-title {
+    color: #ffffff;
+    font-size: 0.88rem; /* Fuente pequeña para títulos */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #a0a9b8;
+    font-size: 0.82rem; /* Fuente pequeña */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00ffc2;
+}
+
+/* --- ICONOS SOCIALES MEDIANOS CON REBORDE DEGRADADO --- */
+.social-icons-container {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-box {
+    width: 40px; /* Tamaño mediano */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #3d5afe; /* Azul inicial */
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.social-icon-box:hover {
+    color: #00ffc2;
+    transform: translateY(-3px);
+    background: transparent;
+}
+
+/* Reborde fino con degradado en Hover */
+.social-icon-box:hover::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 9px;
+    padding: 1px;
+    background: linear-gradient(90deg, #00ffc2 0%, #00d2ff 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* Línea y Copyright */
+.footer-line {
+    border-color: rgba(255, 255, 255, 0.05);
+    margin: 40px 0 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.75rem; /* Muy pequeña para el copyright */
+    color: #6c757d;
+    text-align: center;
+}
+
+.brand-accent {
+    color: #3d5afe;
+    font-weight: 600;
+}
+
+/* Esto cambia el color de las letras sugeridas (placeholder) */
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important; /* Gris suave transparente */
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* Opcional: Cambiar el color cuando el usuario hace clic para escribir */
+.custom-input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.2); /* Se vuelve más tenue al escribir */
+}
+
+/* Colores de Iconos */
+.icon-bg-blue { background: rgba(61, 90, 254, 0.1); color: #3d5afe; }
+.icon-bg-green { background: rgba(37, 211, 102, 0.1); color: #25d366; }
+
+/* Colores de iconos específicos */
+.icon-bg-blue { background: rgba(61, 90, 254, 0.1); color: #3d5afe; }
+.icon-bg-green { background: rgba(37, 211, 102, 0.1); color: #25d366; }
